@@ -164,27 +164,88 @@ result = (x == 1) ? true : false;
 ```
 
 ```js
-```
+// Operators
+true || false;       // true
+10 > 5 || 10 > 20;   // true
+false || false;      // false
+10 > 100 || 10 > 20; // false
 
-```js
-```
 
-```js
-```
+// Logical Operators &&
+true && true;        // true
+1 > 2 && 2 > 1;      // false
+true && false;       // false
+4 === 4 && 3 > 1;    // true
 
-```js
-```
 
-```js
-```
+// Comparison Operators
+1 > 3                // false
+3 > 1                // true
+250 >= 250           // true
+1 === 1              // true
+1 === 2              // false
+1 === '1'            // false
 
-```js
-```
 
-```js
-```
 
-```js
+//Logical Operator !
+let lateToWork = true;
+let oppositeValue = !lateToWork;
+
+// => false
+console.log(oppositeValue);
+
+
+//Nullish coalescing operator ??
+null ?? 'I win';           //  'I win'
+undefined ?? 'Me too';     //  'Me too'
+
+false ?? 'I lose'          //  false
+0 ?? 'I lose again'        //  0
+'' ?? 'Damn it'            //  ''
+
+
+// else if
+const size = 10;
+
+if (size > 100) {
+  console.log('Big');
+} else if (size > 20) {
+  console.log('Medium');
+} else if (size > 4) {
+  console.log('Small');
+} else {
+  console.log('Tiny');
+}
+// Print: Small
+
+
+// switch Statement
+const food = 'salad';
+
+switch (food) {
+  case 'oyster':
+    console.log('The taste of the sea');
+    break;
+  case 'pizza':
+    console.log('A delicious pie');
+    break;
+  default:
+    console.log('Enjoy your meal');
+}
+
+// == vs ===
+0 == false   // true
+0 === false  // false, different type
+1 == "1"     // true,  automatic type conversion
+1 === "1"    // false, different type
+null == undefined  // true
+null === undefined // false
+'0' == false       // true
+'0' === false      // false
+
+// The == just check the value, === check both the value and the type.
+
 ```
 
 ---
@@ -193,11 +254,173 @@ result = (x == 1) ? true : false;
 
 Explore how to define and use functions to create reusable blocks of code. Learn about function expressions, function declarations, and arrow functions.
 
+```js
+// Functions
+// Defining the function:
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+// Calling the function:
+sum(3, 6); // 9
+
+```
+
+```js
+// Anonymous Functions
+// Named function
+function rocketToMars() {
+  return 'BOOM!';
+}
+
+// Anonymous function
+const rocketToMars = function() {
+  return 'BOOM!';
+}
+
+```
+
+```js
+// Arrow Functions (ES6)
+// With two arguments
+const sum = (param1, param2) => {
+  return param1 + param2;
+};
+console.log(sum(2,5)); // => 7
+
+
+// With no arguments
+const printHello = () => {
+  console.log('hello');
+};
+printHello(); // => hello
+
+
+// With a single argument
+const checkWeight = weight => {
+  console.log(`Weight : ${weight}`);
+};
+checkWeight(25); // => Weight : 25
+
+
+//Concise arrow functions
+const multiply = (a, b) => a * b;
+// => 60
+console.log(multiply(2, 30));
+
+```
+
+```js
+// return Keyword
+// With return
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+// The function doesn't output the sum
+function sum(num1, num2) {
+  num1 + num2;
+}
+
+```
+
+```js
+// Calling Fucntions
+// Defining the function
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+// Calling the function
+sum(2, 4); // 6
+
+```
+
+```js
+//Function Expressions
+const dog = function() {
+  return 'Woof!';
+}
+
+```
+
+```js
+// Functions Parameters
+// The parameter is name
+function sayHello(name) {
+  return `Hello, ${name}!`;
+}
+
+```
+
 ---
 
 ## 4. JavaScript Scope
 
 Dive into the concept of scope to understand variable accessibility. This includes global, local, block, and function scopes, along with an explanation of `let`, `const`, and `var`.
+
+```js
+//Scope
+function myFunction() {
+
+  var pizzaName = "Margarita";
+  // Code here can use pizzaName
+
+}
+
+// Code here can't use pizzaName
+
+```
+
+```js
+//Block Scoped Variables
+const isLoggedIn = true;
+
+if (isLoggedIn == true) {
+  const statusMessage = 'Logged in.';
+}
+
+// Uncaught ReferenceError...
+console.log(statusMessage);
+
+
+```
+
+```js
+// Global Variables
+// Variable declared globally
+const color = 'blue';
+
+function printColor() {
+  console.log(color);
+}
+
+printColor(); // => blue
+
+```
+
+```js
+// let vs var
+for (let i = 0; i < 3; i++) {
+  // This is the Max Scope for 'let'
+  // i accessible ✔️
+}
+// i not accessible ❌
+
+//var is scoped to the nearest function block, and let is scoped to the nearest enclosing block.
+
+```
+
+```js
+// Loops with Closures
+// Prints 3 thrice, not what we meant.
+for (var i = 0; i < 3; i++) {
+  setTimeout(_ => console.log(i), 10);
+}
+
+// The variable has its own copy using let, and the variable has shared copy using var.
+
+```
 
 ---
 
@@ -205,11 +428,124 @@ Dive into the concept of scope to understand variable accessibility. This includ
 
 Master the use of arrays for storing collections of data. Learn about accessing elements, and using array methods like `push()`, `pop()`, `map()`, `filter()`, and more.
 
+```js
+// Arrays
+const fruits = ["apple", "orange", "banana"];
+
+// Different data types
+const data = [1, 'chicken', false];
+
+```
+
+```js
+// Property .length
+const numbers = [1, 2, 3, 4];
+
+numbers.length // 4
+
+```
+
+```js
+// Index
+// Accessing an array element
+const myArray = [100, 200, 300];
+
+console.log(myArray[0]); // 100
+console.log(myArray[1]); // 200
+
+```
+
+```js
+// Methods .push()
+// Adding a single element:
+const cart = ['apple', 'orange'];
+cart.push('pear');
+
+// Adding multiple elements:
+const numbers = [1, 2];
+numbers.push(3, 4, 5);
+
+// Add items to the end and returns the new array length.
+```
+
+```js
+// Method .pop()
+const fruits = ["apple", "orange", "banana"];
+
+const fruit = fruits.pop(); // 'banana'
+console.log(fruits); // ["apple", "orange"]
+
+// Remove an item from the end and returns the removed item.
+
+```
+
+```js
+// Method .shift()
+let cats = ['Bob', 'Willy', 'Mini'];
+
+cats.shift(); // ['Willy', 'Mini']
+
+// Remove an item from the beginning and returns the removed item.
+
+
+```
+
+```js
+// Method .unshift()
+let cats = ['Bob'];
+
+// => ['Willy', 'Bob']
+cats.unshift('Willy');
+
+// => ['Puff', 'George', 'Willy', 'Bob']
+cats.unshift('Puff', 'George');
+
+// Add items to the beginning and returns the new array length.
+```
+
+```js
+// Method .concat()
+const numbers = [3, 2, 1]
+const newFirstNumber = 4
+
+// => [ 4, 3, 2, 1 ]
+[newFirstNumber].concat(numbers)
+
+// => [ 3, 2, 1, 4 ]
+numbers.concat(newFirstNumber)
+
+// if you want to avoid mutating your original array, you can use concat.
+```
+
 ---
 
 ## 6. JavaScript Loops
 
 Understand how to repeat actions in your code using loops such as `for`, `while`, `do...while`, and `for...of`. Learn when and how to use each type of loop.
+
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
 
 ---
 
