@@ -524,34 +524,136 @@ numbers.concat(newFirstNumber)
 Understand how to repeat actions in your code using loops such as `for`, `while`, `do...while`, and `for...of`. Learn when and how to use each type of loop.
 
 ```js
+// For Loop
+for (let i = 0; i < 4; i += 1) {
+  console.log(i);
+};
+
+// => 0, 1, 2, 3
+
+
 ```
 
 ```js
+// While Loop
+while (condition) {
+  // code block to be executed
+}
+
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
 ```
 
 ```js
+// Do...While Statement
+x = 0
+i = 0
+
+do {
+  x = x + i;
+  console.log(x)
+  i++;
+} while (i < 5);
+// => 0 1 3 6 10
+
 ```
 
 ```js
+// for...of loop
+const fruits = ["apple", "orange", "banana"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+// => apple
+// => orange
+// => banana
+
 ```
 
 ```js
+// for...in loop
+const fruits = ["apple", "orange", "banana"];
+
+for (let index in fruits) {
+  console.log(index);
+}
+// => 0
+// => 1
+// => 2
+
 ```
 
 ```js
+// Reverse Loop
+const fruits = ["apple", "orange", "banana"];
+
+for (let i = fruits.length - 1; i >= 0; i--) {
+  console.log(`${i}. ${fruits[i]}`);
+}
+
+// => 2. banana
+// => 1. orange
+// => 0. apple
+
 ```
 
 ```js
+// Looping Through Arrays
+for (let i = 0; i < array.length; i++){
+  console.log(array[i]);
+}
+
+// => Every item in the array
+
 ```
 
 ```js
+// Break
+for (let i = 0; i < 99; i += 1) {
+  if (i > 5) {
+     break;
+  }
+  console.log(i)
+}
+// => 0 1 2 3 4 5
+
 ```
+
+```js
+// Continue
+for (i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+
+```
+
+```js
+// Nested
+for (let i = 0; i < 2; i += 1) {
+  for (let j = 0; j < 3; j += 1) {
+    console.log(`${i}-${j}`);
+  }
+}
+
+```
+
 
 ---
 
 ## 7. JavaScript Iterators
 
 Iterators simplify working with collections of data. Learn how to use methods like `forEach()`, `map()`, `filter()`, and `reduce()` for efficient iteration.
+
+
+
+
+
 
 ---
 
