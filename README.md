@@ -650,7 +650,96 @@ for (let i = 0; i < 2; i += 1) {
 
 Iterators simplify working with collections of data. Learn how to use methods like `forEach()`, `map()`, `filter()`, and `reduce()` for efficient iteration.
 
+```js
+// Functions Assigned to Variables
+let plusFive = (number) => {
+  return number + 5;
+};
+// f is assigned the value of plusFive
+let f = plusFive;
 
+plusFive(3); // 8
+// Since f has a function value, it can be invoked.
+f(9); // 14
+
+
+```
+
+```js
+// Callback Functions
+const isEven = (n) => {
+  return n % 2 == 0;
+}
+
+let printMsg = (evenFunc, num) => {
+  const isNumEven = evenFunc(num);
+  console.log(`${num} is an even number: ${isNumEven}.`)
+}
+
+// Pass in isEven as the callback function
+printMsg(isEven, 4);
+// => The number 4 is an even number: True.
+
+```
+
+```js
+// Array Method .forEach()
+const numbers = [28, 77, 45, 99, 27];
+
+numbers.forEach(number => {
+  console.log(number);
+});
+
+```
+
+```js
+// array Method .map()
+const members = ["Taylor", "Donald", "Don", "Natasha", "Bobby"];
+
+const announcements = members.map((member) => {
+  return member + " joined the contest.";
+});
+
+console.log(announcements);
+
+```
+
+```js
+// Array Method .filter()
+const randomNumbers = [4, 11, 42, 14, 39];
+const filteredArray = randomNumbers.filter(n => {
+  return n > 5;
+});
+
+```
+
+```js
+// Array Method .reduce()
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce((accumulator, curVal) => {
+  return accumulator + curVal;
+});
+
+console.log(sum); // 10
+
+```
+
+```js
+```
+```js
+```
+
+```js
+```
+
+```js
+```
+
+```js
+```
+```js
+```
 
 
 
