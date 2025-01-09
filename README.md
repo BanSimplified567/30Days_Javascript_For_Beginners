@@ -643,7 +643,6 @@ for (let i = 0; i < 2; i += 1) {
 
 ```
 
-
 ---
 
 ## 7. JavaScript Iterators
@@ -725,30 +724,242 @@ console.log(sum); // 10
 
 ```
 
-```js
-```
-```js
-```
-
-```js
-```
-
-```js
-```
-
-```js
-```
-```js
-```
-
-
-
-
 ---
 
 ## 8. JavaScript Objects
 
 Discover how to create, modify, and use objects. Understand object properties, methods, object literals, and the role of `this` in JavaScript.
+
+```js
+// Create an object using an object literal
+const car = {
+  // Properties
+  make: "Toyota",
+  model: "Camry",
+  year: 2020,
+  color: "Blue",
+
+  // Method
+  start: function() {
+    console.log(`The ${this.color} ${this.make} ${this.model} is starting.`);
+  },
+
+  // Method using 'this'
+  paint: function(newColor) {
+    this.color = newColor;
+    console.log(`The car has been painted ${this.color}.`);
+  }
+};
+
+// Accessing object properties
+console.log(car.make); // Output: Toyota
+console.log(car["model"]); // Output: Camry
+
+// Using an object method
+car.start(); // Output: The Blue Toyota Camry is starting.
+
+// Modifying a property
+car.color = "Red";
+console.log(car.color); // Output: Red
+
+// Using a method to modify a property
+car.paint("Green"); // Output: The car has been painted Green.
+
+// Adding a new property dynamically
+car.mileage = 30000;
+console.log(car.mileage); // Output: 30000
+
+```
+
+```js
+// this Keyword
+const cat = {
+  name: 'Pipey',
+  age: 8,
+  whatName() {
+    return this.name
+  }
+};
+console.log(cat.whatName()); // => Pipey
+
+```
+
+```js
+// Accessing Properties
+const apple = {
+  color: 'Green',
+  price: { bulk: '$3/kg', smallQty: '$4/kg' }
+};
+console.log(apple.color); // => Green
+console.log(apple.price.bulk); // => $3/kg
+
+```
+
+```js
+// Naming Properties
+// Example of invalid key names
+const trainSchedule = {
+  // Invalid because of the space between words.
+  platform num: 10,
+  // Expressions cannot be keys.
+  40 - 10 + 2: 30,
+  // A + sign is invalid unless it is enclosed in quotations.
+  +compartment: 'C'
+}
+
+```
+
+```js
+// Non-existent properties
+const classElection = {
+  date: 'January 12'
+};
+
+console.log(classElection.place); // undefined
+
+```
+
+```js
+// Assignment shorthand syntax
+const person = {
+  name: 'Tom',
+  age: '22',
+};
+const {name, age} = person;
+console.log(name); // 'Tom'
+console.log(age);  // '22'
+
+```
+
+```js
+// Mutable
+const student = {
+  name: 'Sheldon',
+  score: 100,
+  grade: 'A',
+}
+
+console.log(student)
+// { name: 'Sheldon', score: 100, grade: 'A' }
+
+delete student.score
+student.grade = 'F'
+console.log(student)
+// { name: 'Sheldon', grade: 'F' }
+
+student = {}
+// TypeError: Assignment to constant variable.
+
+```
+
+```js
+// Delete operator
+const person = {
+  firstName: "Matilda",
+  age: 27,
+  hobby: "knitting",
+  goal: "learning JavaScript"
+};
+
+delete person.hobby; // or delete person[hobby];
+
+console.log(person);
+/*
+{
+  firstName: "Matilda"
+  age: 27
+  goal: "learning JavaScript"
+}
+*/
+
+
+```
+
+```js
+// Objects as arguments
+const origNum = 8;
+const origObj = {color: 'blue'};
+
+const changeItUp = (num, obj) => {
+  num = 7;
+  obj.color = 'red';
+};
+
+changeItUp(origNum, origObj);
+
+// Will output 8 since integers are passed by value.
+console.log(origNum);
+
+// Will output 'red' since objects are passed
+// by reference and are therefore mutable.
+console.log(origObj.color);
+
+```
+
+```js
+// Short object creation
+const activity = 'Surfing';
+const beach = { activity };
+console.log(beach); // { activity: 'Surfing' }
+
+```
+
+```js
+// Factory functions
+// A factory function that accepts 'name',
+// 'age', and 'breed' parameters to return
+// a customized dog object.
+const dogFactory = (name, age, breed) => {
+  return {
+    name: name,
+    age: age,
+    breed: breed,
+    bark() {
+      console.log('Woof!');
+    }
+  };
+};
+
+
+```
+
+```js
+// Methods
+const engine = {
+  // method shorthand, with one argument
+  start(adverb) {
+    console.log(`The engine starts up ${adverb}...`);
+  },
+  // anonymous arrow function expression with no arguments
+  sputter: () => {
+    console.log('The engine sputters...');
+  },
+};
+
+engine.start('noisily');
+engine.sputter();
+
+```
+
+```js
+// Getters and setters
+const myCat = {
+  _name: 'Dottie',
+  get name() {
+    return this._name;
+  },
+  set name(newName) {
+    this._name = newName;
+  }
+};
+
+// Reference invokes the getter
+console.log(myCat.name);
+
+// Assignment invokes the setter
+myCat.name = 'Yankee';
+
+```
 
 ---
 
