@@ -1063,14 +1063,6 @@ const mySong = new Song({
 
 ```
 
-```js
-```
-
-```js
-```
-
-```js
-```
 
 
 ---
@@ -1079,11 +1071,258 @@ const mySong = new Song({
 
 Organize your code into reusable chunks with modules. Learn how to create modules and use `import` and `export` statements effectively.
 
+```js
+// Export
+// myMath.js
+
+// Default export
+export default function add(x,y){
+    return x + y
+}
+
+// Normal export
+export function subtract(x,y){
+    return x - y
+}
+
+// Multiple exports
+function multiply(x,y){
+    return x * y
+}
+function duplicate(x){
+    return x * 2
+}
+export {
+    multiply,
+    duplicate
+}
+
+```
+
+```js
+// Import
+// main.js
+import add, { subtract, multiply, duplicate } from './myMath.js';
+
+console.log(add(6, 2)); // 8
+console.log(subtract(6, 2)) // 4
+console.log(multiply(6, 2)); // 12
+console.log(duplicate(5)) // 10
+
+// index.html
+<script type="module" src="main.js"></script>
+
+```
+
+```js
+// Export Module
+// myMath.js
+
+function add(x,y){
+    return x + y
+}
+function subtract(x,y){
+    return x - y
+}
+function multiply(x,y){
+    return x * y
+}
+function duplicate(x){
+    return x * 2
+}
+
+// Multiple exports in node.js
+module.exports = {
+    add,
+    subtract,
+    multiply,
+    duplicate
+}
+
+```
+
+```js
+// Reqire Module
+// main.js
+const myMath = require('./myMath.js')
+
+console.log(myMath.add(6, 2)); // 8
+console.log(myMath.subtract(6, 2)) // 4
+console.log(myMath.multiply(6, 2)); // 12
+console.log(myMath.duplicate(5)) // 10
+
+```
+
+
+
+
 ---
 
 ## 11. JavaScript Promises
 
 Promises allow you to manage asynchronous operations. Learn how to create, resolve, and chain promises, as well as handle errors using `.catch()`.
+
+
+```js
+// .catch() method
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject(Error('Promise Rejected Unconditionally.'));
+  }, 1000);
+});
+
+promise.then((res) => {
+  console.log(value);
+});
+
+promise.catch((err) => {
+  console.error(err);
+});
+
+```
+
+```js
+// Promise states
+const promise = new Promise((resolve, reject) => {
+  const res = true;
+  // An asynchronous operation.
+  if (res) {
+    resolve('Resolved!');
+  }
+  else {
+    reject(Error('Error'));
+  }
+});
+
+promise.then((res) => console.log(res), (err) => console.error(err));
+
+```
+
+```js
+// Executor funxtion
+const executorFn = (resolve, reject) => {
+  resolve('Resolved!');
+};
+
+const promise = new Promise(executorFn);
+
+```
+
+```js
+// setTimeout()
+const loginAlert = () =>{
+  console.log('Login');
+};
+
+setTimeout(loginAlert, 6000);
+
+```
+
+```js
+// .then() method
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Result');
+  }, 200);
+});
+
+promise.then((res) => {
+  console.log(res);
+}, (err) => {
+  console.error(err);
+});
+
+```
+
+```js
+// Promise.all()
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(3);
+  }, 300);
+});
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(2);
+  }, 200);
+});
+
+Promise.all([promise1, promise2]).then((res) => {
+  console.log(res[0]);
+  console.log(res[1]);
+});
+
+```
+
+```js
+// Avoiding nested Promise and .then()
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('*');
+  }, 1000);
+});
+
+const twoStars = (star) => {
+  return (star + star);
+};
+
+const oneDot = (star) => {
+  return (star + '.');
+};
+
+const print = (val) => {
+  console.log(val);
+};
+
+// Chaining them all together
+promise.then(twoStars).then(oneDot).then(print);
+
+```
+```js
+// Creating
+const executorFn = (resolve, reject) => {
+  console.log('The executor function of the promise!');
+};
+
+const promise = new Promise(executorFn);
+
+```
+```js
+// Claining multiple .then()
+const promise = new Promise(resolve => setTimeout(() => resolve('dAlan'), 100));
+
+promise.then(res => {
+  return res === 'Alan' ? Promise.resolve('Hey Alan!') : Promise.reject('Who are you?')
+}).then((res) => {
+  console.log(res)
+}, (err) => {
+  console.error(err)
+});
+
+```
+
+```js
+// Fake http Request with Promise
+const mock = (success, timeout = 1000) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if(success) {
+        resolve({status: 200, data:{}});
+      } else {
+        reject({message: 'Error'});
+      }
+    }, timeout);
+  });
+}
+const someEvent = async () => {
+  try {
+    await mock(true, 1000);
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
+```
 
 ---
 
