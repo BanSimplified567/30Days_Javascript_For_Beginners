@@ -1037,6 +1037,7 @@ class Song {
 }
 
 ```
+
 ```js
 // extends
 // Parent class
@@ -1062,8 +1063,6 @@ const mySong = new Song({
 });
 
 ```
-
-
 
 ---
 
@@ -1153,15 +1152,11 @@ console.log(myMath.duplicate(5)) // 10
 
 ```
 
-
-
-
 ---
 
 ## 11. JavaScript Promises
 
 Promises allow you to manage asynchronous operations. Learn how to create, resolve, and chain promises, as well as handle errors using `.catch()`.
-
 
 ```js
 // .catch() method
@@ -1278,6 +1273,7 @@ const print = (val) => {
 promise.then(twoStars).then(oneDot).then(print);
 
 ```
+
 ```js
 // Creating
 const executorFn = (resolve, reject) => {
@@ -1287,6 +1283,7 @@ const executorFn = (resolve, reject) => {
 const promise = new Promise(executorFn);
 
 ```
+
 ```js
 // Claining multiple .then()
 const promise = new Promise(resolve => setTimeout(() => resolve('dAlan'), 100));
@@ -1329,6 +1326,103 @@ const someEvent = async () => {
 ## 12. JavaScript Async-Await
 
 Simplify working with promises using `async` and `await`. Learn how these keywords make asynchronous code more readable and easier to debug.
+
+```js
+// Asyncronous
+function helloWorld() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Hello World!');
+    }, 2000);
+  });
+}
+
+const msg = async function() { //Async Function Expression
+  const msg = await helloWorld();
+  console.log('Message:', msg);
+}
+
+const msg1 = async () => { //Async Arrow Function
+  const msg = await helloWorld();
+  console.log('Message:', msg);
+}
+
+msg(); // Message: Hello World! <-- after 2 seconds
+msg1(); // Message: Hello World! <-- after 2 seconds
+
+
+```
+
+```js
+// Resolving Promises
+let pro1 = Promise.resolve(5);
+let pro2 = 44;
+let pro3 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([pro1, pro2, pro3]).then(function(values) {
+  console.log(values);
+});
+// expected => Array [5, 44, "foo"]
+
+
+```
+
+```js
+// Async Await Promises
+function helloWorld() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Hello World!');
+    }, 2000);
+  });
+}
+
+async function msg() {
+  const msg = await helloWorld();
+  console.log('Message:', msg);
+}
+
+msg(); // Message: Hello World! <-- after 2 seconds
+
+
+```
+
+```js
+// Error Handling
+let json = '{ "age": 30 }'; // incomplete data
+
+try {
+  let user = JSON.parse(json); // <-- no errors
+  console.log( user.name ); // no name!
+} catch (e) {
+  console.error( "Invalid JSON data!" );
+}
+
+
+```
+
+```js
+// Await Operator
+function helloWorld() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Hello World!');
+    }, 2000);
+  });
+}
+
+async function msg() {
+  const msg = await helloWorld();
+  console.log('Message:', msg);
+}
+
+msg(); // Message: Hello World! <-- after 2 seconds
+
+
+```
+
 
 ---
 
