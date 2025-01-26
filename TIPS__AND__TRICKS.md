@@ -1,4 +1,3 @@
-
 # 20 JavaScript Tips and Tricks
 
 Level up your JavaScript skills with these powerful tips and tricks. Each one is designed to make your code more efficient, readable, and fun to write!
@@ -8,9 +7,9 @@ Level up your JavaScript skills with these powerful tips and tricks. Each one is
 Destructuring allows you to unpack values from arrays or objects in a breeze:
 
 ```javascript
-const person = { name: 'Alice', age: 30 };
+const person = { name: 'Bansimplified', age: 30 };
 const { name, age } = person;
-console.log(name); // Output: Alice
+console.log(name); // Output: Bansimplified
 ```
 
 ## 2. Spread the Love: Clone Arrays and Merge Objects
@@ -67,7 +66,7 @@ Arrow functions (`() => {}`) are not only concise, but they also preserve the va
 
 ```javascript
 const greet = name => `Hello, ${name}!`;
-console.log(greet('Alice')); // Output: Hello, Alice!
+console.log(greet('Bansimplified')); // Output: Hello, Bansimplified!
 ```
 
 ## 7. Mastering `Promise.all()`: Handle Multiple Promises
@@ -88,8 +87,8 @@ You can use variables as object property names using square brackets:
 
 ```javascript
 const key = 'name';
-const person = { [key]: 'Alice' };
-console.log(person.name); // Output: Alice
+const person = { [key]: 'Bansimplified' };
+console.log(person.name); // Output: Bansimplified
 ```
 
 ## 9. Template Literals Magic: String Formatting
@@ -97,9 +96,9 @@ console.log(person.name); // Output: Alice
 Template literals (`${}`) allow you to embed expressions in strings:
 
 ```javascript
-const name = 'Alice';
+const name = 'Bansimplified';
 const greeting = `Hello, ${name}!`;
-console.log(greeting); // Output: Hello, Alice!
+console.log(greeting); // Output: Hello, Bansimplified!
 ```
 
 ## 10. NaN Checking: A Safer Alternative
@@ -116,7 +115,7 @@ console.log(Number.isNaN(notANumber)); // Output: false
 Avoid errors with optional chaining when dealing with nested properties:
 
 ```javascript
-const user = { info: { name: 'Alice' } };
+const user = { info: { name: 'Bansimplified' } };
 console.log(user.info?.age); // Output: undefined
 ```
 
@@ -148,10 +147,10 @@ console.log(parsed.age); // Output: 30
 Go beyond `console.log()` with `console.table()` and `console.groupCollapsed()`:
 
 ```javascript
-const users = [{ name: 'Alice' }, { name: 'Bob' }];
+const users = [{ name: 'Bansimplified' }, { name: 'Bob' }];
 console.table(users);
 console.groupCollapsed('Details');
-console.log('Name: Alice');
+console.log('Name: Bansimplified');
 console.log('Age: 30');
 console.groupEnd();
 ```
